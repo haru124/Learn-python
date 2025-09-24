@@ -15,19 +15,13 @@ def fib_memoization(n, fib={}):
     if n in fib:
         return fib[n]
     if n == 0:
-        fib[0] = 0
-        print(f"The Fibonacci of {n} is {fib[0]}")
         return 0
     elif n == 1:            
-        fib[1] = 1
-        print(f"The Fibonacci of {n} is {fib[1]}")
         return 1
     else:
         fib[n] = fib_memoization(n - 1, fib) + fib_memoization(n - 2, fib)
-        print(f"The Fibonacci of {n} is {fib[n]}")
         return fib[n]
-    
-    
+
 if __name__ == "__main__":
     # Input from user
     

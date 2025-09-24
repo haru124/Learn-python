@@ -1,0 +1,30 @@
+def longest_common_substring(s1, s2):
+    n1, n2 = len(s1), len(s2)
+    # Rows = s2, Columns = s1
+    dp = [[0]*(n1+1) for _ in range(n2+1)]
+    print(dp)
+    max_len = 0
+    end_index = 0  # End of LCS in s1
+
+    for row in range(1, n2+1):  # iterate over s2
+        for col in range(1, n1+1):  # iterate over s1
+            if s2[row-1] == s1[col-1]:
+                dp[row][col] = dp[row-1][col-1] + 1
+                if dp[row][col] > max_len:
+                    max_len = dp[row][col]
+                    end_index = col  # end index in s1
+            else:
+                dp[row][col] = 0
+        # Print the row after filling
+        print(f"After comparing s2[{row-1}]='{s2[row-1]}' with s1:")
+        print(dp[row])
+        print()
+    print(f"end index = {end_index}")
+    print(f"max_length = {max_len}")
+
+    return s1[end_index-max_len:end_index]
+
+# Example
+s1 = "onionionsponi"
+s2 = "onion"
+print("Longest Common Substring:", longest_common_substring(s1, s2))
