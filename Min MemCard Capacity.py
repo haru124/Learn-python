@@ -1,3 +1,47 @@
+"""
+Problem Statement
+
+You are given a list of integers where each integer represents the memory requirement (in MB) to download an app. There are k teams, and each team is provided with one memory card.
+
+The rules for assigning apps are as follows:
+
+Each team must be able to download at least one app.
+A team can download at most two apps.
+All memory cards given to teams must have the same storage capacity.
+Your goal is to minimize this storage capacity while ensuring all apps can be distributed among the teams.
+Return the minimum memory card capacity required.
+
+Example 1
+Input: 
+apps = [10, 6, 7, 12, 1]
+k = 5
+Output: 
+12
+
+Explanation:
+
+Each team can take one app.
+The maximum app size is 12, so a memory card of size 12 MB is sufficient.
+
+Example 2
+Input: 
+apps = [10, 6, 7, 12, 1]
+k = 3
+Output: 
+13
+
+Explanation:
+
+We must group the apps into 3 teams.
+One possible grouping:
+Team 1 → (12)
+Team 2 → (10, 1)
+Team 3 → (7, 6)
+
+The maximum size among these groups is 13.
+So, the minimum required card size is 13 MB.
+"""
+
 def minimum_mem_cap(appmem,k):
     n = len(appmem)
     if n > k*2:
